@@ -130,7 +130,7 @@
   }
 
   /**
-   * Hero type effect
+   * Accueil type effect
    */
   const typed = select('.typed')
   if (typed) {
@@ -163,7 +163,7 @@
   }
 
   /**
-   * Porfolio isotope and filter
+   * Projet isotope and filter
    */
   window.addEventListener('load', () => {
     let projetContainer = select('.projet-container');
@@ -193,14 +193,14 @@
   });
 
   /**
-   * Initiate portfolio lightbox 
+   * Initiate projet lightbox 
    */
   const projetLightbox = GLightbox({
     selector: '.projet-lightbox'
   });
 
   /**
-   * Initiate portfolio details lightbox 
+   * Initiate projet details lightbox 
    */
   const projetDetailsLightbox = GLightbox({
     selector: '.projet-details-lightbox',
@@ -209,7 +209,7 @@
   });
 
   /**
-   * Portfolio details slider
+   * Projet details slider
    */
   new Swiper('.projet-details-slider', {
     speed: 400,
