@@ -1,15 +1,8 @@
-/**
-* Template Name: MyResume
-* Updated: Nov 17 2023 with Bootstrap v5.3.2
-* Template URL: https://bootstrapmade.com/free-html-bootstrap-template-my-resume/
-* Author: BootstrapMade.com
-* License: https://bootstrapmade.com/license/
-*/
 (function() {
   "use strict";
 
   /**
-   * Easy selector helper function
+   * selecteur helper function
    */
   const select = (el, all = false) => {
     el = el.trim()
@@ -21,7 +14,7 @@
   }
 
   /**
-   * Easy event listener function
+   * event listener function
    */
   const on = (type, el, listener, all = false) => {
     let selectEl = select(el, all)
@@ -35,7 +28,7 @@
   }
 
   /**
-   * Easy on scroll event listener 
+   * on scroll event listener 
    */
   const onscroll = (el, listener) => {
     el.addEventListener('scroll', listener)
