@@ -261,3 +261,65 @@
   new PureCounter();
 
 })()
+
+// Copy texte
+document.addEventListener('DOMContentLoaded', function() {
+  var copyTextElements = document.querySelectorAll('.copy-text');
+
+  copyTextElements.forEach(function(element) {
+      element.addEventListener('click', function() {
+          var matriculeText = element.textContent;
+
+          var textArea = document.createElement('textarea');
+          textArea.value = matriculeText;
+          textArea.style.position = 'fixed'; 
+
+          document.body.appendChild(textArea);
+
+          textArea.select();
+          document.execCommand('copy');
+
+          document.body.removeChild(textArea);
+
+          var matriculeCopiéAlert = "Copie réussie : " + matriculeText;
+
+          window.sessionStorage.setItem('copie_alert', matriculeCopiéAlert);
+
+          showAlert(matriculeCopiéAlert);
+      });
+  });
+
+  function showAlert(message) {
+      var alertContainer = document.createElement('div');
+      alertContainer.id = "auto-close-alert-copie";
+      alertContainer.className = "position-fixed bottom-0 end-0 p-3";
+      alertContainer.style.zIndex = "99999";
+
+      var alertDiv = document.createElement('div');
+      alertDiv.className = "alert alert-success alert-dismissible";
+      alertDiv.setAttribute('role', 'alert');
+      alertDiv.innerText = message;
+
+      var closeButton = document.createElement('button');
+      closeButton.type = "button";
+      closeButton.className = "btn-close";
+      closeButton.setAttribute('data-bs-dismiss', 'alert');
+      closeButton.setAttribute('aria-label', 'Fermer');
+
+      alertDiv.appendChild(closeButton);
+      alertContainer.appendChild(alertDiv);
+      document.body.appendChild(alertContainer);
+
+      setTimeout(function() {
+          document.body.removeChild(alertContainer);
+
+          window.sessionStorage.removeItem('copie_alert');
+      }, 5000); // 5000 ms (5 secondes) de délai
+  }
+
+  var storedAlert = window.sessionStorage.getItem('copie_alert');
+  if (storedAlert) {
+      showAlert(storedAlert);
+      window.sessionStorage.removeItem('copie_alert');
+  }
+});
