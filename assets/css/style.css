@@ -1025,6 +1025,10 @@ section {
   color: #fff;
 }
 
+a {
+  cursor: pointer;
+}
+
 @keyframes animate-loading {
   0% {
     transform: rotate(0deg);
