@@ -2,7 +2,7 @@
   "use strict";
 
   /**
-   * selecteur helper function
+   * Fonction d'aide pour le sélecteur
    */
   const select = (el, all = false) => {
     el = el.trim()
@@ -14,7 +14,7 @@
   }
 
   /**
-   * event listener function
+   * Fonction du gestionnaire d'événements
    */
   const on = (type, el, listener, all = false) => {
     let selectEl = select(el, all)
@@ -28,14 +28,14 @@
   }
 
   /**
-   * on scroll event listener 
+   * Gestionnaire d'événements de défilement
    */
   const onscroll = (el, listener) => {
     el.addEventListener('scroll', listener)
   }
 
   /**
-   * Navbar links active state on scroll
+   * État actif des liens de la barre de navigation lors du défilement
    */
   let navbarlinks = select('#navbar .scrollto', true)
   const navbarlinksActive = () => {
@@ -55,7 +55,7 @@
   onscroll(document, navbarlinksActive)
 
   /**
-   * Scrolls to an element with header offset
+   * Défilement vers un élément avec un décalage d'en-tête
    */
   const scrollto = (el) => {
     let elementPos = select(el).offsetTop
@@ -66,7 +66,7 @@
   }
 
   /**
-   * Back to top button
+   * Bouton retour en haut
    */
   let backtotop = select('.back-to-top')
   if (backtotop) {
@@ -82,7 +82,7 @@
   }
 
   /**
-   * Mobile nav toggle
+   * Basculer la navigation mobile
    */
   on('click', '.mobile-nav-toggle', function(e) {
     select('body').classList.toggle('mobile-nav-active')
@@ -91,7 +91,7 @@
   })
 
   /**
-   * Scrool with ofset on links with a class name .scrollto
+   * Défilement avec décalage sur les liens avec une classe .scrollto
    */
   on('click', '.scrollto', function(e) {
     if (select(this.hash)) {
@@ -109,7 +109,7 @@
   }, true)
 
   /**
-   * Scroll with ofset on page load with hash links in the url
+   * Défilement avec décalage au chargement de la page avec des liens de hachage dans l'URL
    */
   window.addEventListener('load', () => {
     if (window.location.hash) {
@@ -120,7 +120,7 @@
   });
 
   /**
-   * Preloader
+   * Préchargeur
    */
   let preloader = select('#preloader');
   if (preloader) {
@@ -130,7 +130,7 @@
   }
 
   /**
-   * Accueil type effect
+   * Effet de type Accueil
    */
   const typed = select('.typed')
   if (typed) {
@@ -146,7 +146,7 @@
   }
 
   /**
-   * Skills animation
+   * Animation des compétences
    */
   let skilsContent = select('.skills-content');
   if (skilsContent) {
@@ -163,7 +163,7 @@
   }
 
   /**
-   * Projet isotope and filter
+   * Projet isotope et filtre
    */
   window.addEventListener('load', () => {
     let projetContainer = select('.projet-container');
@@ -193,14 +193,14 @@
   });
 
   /**
-   * Initiate projet lightbox 
+   * Initialiser la lightbox du projet
    */
   const projetLightbox = GLightbox({
     selector: '.projet-lightbox'
   });
 
   /**
-   * Initiate projet details lightbox 
+   * Initialiser la lightbox des détails du projet
    */
   const projetDetailsLightbox = GLightbox({
     selector: '.projet-details-lightbox',
@@ -209,7 +209,7 @@
   });
 
   /**
-   * Projet details slider
+   * Curseur de détails du projet
    */
   new Swiper('.projet-details-slider', {
     speed: 400,
@@ -226,25 +226,7 @@
   });
 
   /**
-   * Testimonials slider
-   */
-  new Swiper('.testimonials-slider', {
-    speed: 600,
-    loop: true,
-    autoplay: {
-      delay: 5000,
-      disableOnInteraction: false
-    },
-    slidesPerView: 'auto',
-    pagination: {
-      el: '.swiper-pagination',
-      type: 'bullets',
-      clickable: true
-    }
-  });
-
-  /**
-   * Animation on scroll
+   * Animation au défilement
    */
   window.addEventListener('load', () => {
     AOS.init({
@@ -256,13 +238,13 @@
   });
 
   /**
-   * Initiate Pure Counter 
+   * Initialiser le compteur pur
    */
   new PureCounter();
 
 })()
 
-// Copy texte
+// Copier le texte
 document.addEventListener('DOMContentLoaded', function() {
   var copyTextElements = document.querySelectorAll('.copy-text');
 
